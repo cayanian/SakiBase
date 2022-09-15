@@ -37,6 +37,8 @@ def log_activity(history, write=0, filename='test.csv'):
         logged = pd.DataFrame([[now, decoded]], columns=cols)
         history = pd.concat([history, logged], ignore_index=True)
 
+        display(logged.head())
+
         # save to csv 
         mode = 'a'
         header = False
@@ -50,6 +52,7 @@ def log_activity(history, write=0, filename='test.csv'):
 
     # really slow undo
     if keypress == 'u':
+        print('Undo')
         lines = []
         with open(filename, mode='r+') as f:
             lines = f.readlines()
@@ -60,10 +63,10 @@ def log_activity(history, write=0, filename='test.csv'):
 
     # exit
     if keypress == 'x':
+        print('Exit')
         return history, True
 
 
-    display(history)
     return history, False
 
 
