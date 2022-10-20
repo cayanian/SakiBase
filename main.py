@@ -1,7 +1,3 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import pandas as pd
 from matplotlib import pyplot as plt
 from datetime import datetime, date, timedelta
@@ -79,4 +75,4 @@ def main(filename):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    main(r'C:\Users\cayan\OneDrive\Documents\Side Projects\SakiDB\sakibase.csv')
+    main('sakibase.csv')
