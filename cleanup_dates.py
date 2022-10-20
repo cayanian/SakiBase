@@ -1,8 +1,14 @@
 import pandas as pd
 from datetime import date
 
+# fix issue with date column 
+# format datetimes better
+
+
 def cleanup_dates():
     today = date.today()
+
+    cols = ['time', 'history']
 
     # save to csv 
     csv_current = 'sakibase.csv'
@@ -22,7 +28,7 @@ def cleanup_dates():
     df_new_archive = pd.concat([df_archive, df_not_today], ignore_index=True)
 
     # rewrite archive with new concatenated df
-    df_new_archive.to_csv(csv_archive, mode='w', index=False, header=True)
+    df_new_archive.to_csv(csv_archive, mode='w', index=False, header=True, cols=cols)
 
     # rewrite main file with only today's date
-    df_today.to_csv(csv_current, mode='w', index=False, header=True)
+    df_today.to_csv(csv_current, mode='w', index=False, header=True, cols=cols)

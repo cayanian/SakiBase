@@ -50,6 +50,7 @@ def log_activity(history, write=0, filename='test.csv'):
             header = True
         
         logged.to_csv(filename, mode=mode, index=False, header=header)
+        cleanup_dates()
 
     # really slow undo
     if keypress == 'u':
