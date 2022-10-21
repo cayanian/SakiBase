@@ -1,10 +1,6 @@
 import pandas as pd
 from datetime import date
 
-# fix issue with date column 
-# format datetimes better
-
-
 def cleanup_dates():
     today = date.today()
 
