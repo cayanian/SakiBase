@@ -9,6 +9,8 @@ filename = 'sakibase.csv'
 cols = ['time', 'history']
 history = pd.DataFrame(columns=cols)
 
+date_format = '%Y-%m-%d %H:%M'
+
 activities = {
     '1': 'Pee',
     '2': 'Poop',
@@ -30,7 +32,7 @@ def display(history):
 # react to button
 def log_activity(history, write=0, filename='test.csv'):
     keypress = getch.getKey().lower()
-    now = datetime.datetime.now()
+    now = datetime.datetime.now().strftime(date_format)
 
     if keypress in activities:
         decoded = activities[keypress]
@@ -50,6 +52,8 @@ def log_activity(history, write=0, filename='test.csv'):
             header = True
         
         logged.to_csv(filename, mode=mode, index=False, header=header)
+        
+        # clean up after every keypress (not the most efficient)
         cleanup_dates()
 
     # really slow undo

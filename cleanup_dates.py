@@ -28,7 +28,7 @@ def cleanup_dates():
     df_new_archive = pd.concat([df_archive, df_not_today], ignore_index=True)
 
     # rewrite archive with new concatenated df
-    df_new_archive.to_csv(csv_archive, mode='w', index=False, header=True, cols=cols)
+    df_new_archive.to_csv(csv_archive, mode='w', index=False, header=True, columns=cols)
 
     # rewrite main file with only today's date
-    df_today.to_csv(csv_current, mode='w', index=False, header=True, cols=cols)
+    df_today.to_csv(csv_current, mode='w', index=False, header=True, columns=cols)
